@@ -31,7 +31,7 @@
         body-weight-range (range body-min-weight (inc body-max-weight))]
     (fn []
       (let [[starting-floor dest-floor] (rand-nth dest-matrix)]
-        (spawn-rider "id-abc"
+        (spawn-rider (.toString (java.util.UUID/randomUUID))
                      starting-floor
                      :now
                      dest-floor
