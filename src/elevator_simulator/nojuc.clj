@@ -60,6 +60,7 @@
    rider-body-max-weight
    duration-of-simulation-ms]
   (fn []
+    (println "yo")
     (let [system (atom {:keep-running true})
           rider-spawner (make-rider-spawner num-floors
                                             rider-body-min-weight
