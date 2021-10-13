@@ -60,13 +60,12 @@
    rider-body-max-weight
    duration-of-simulation-ms]
   (fn []
-    (println "yo")
-    (let [system (atom {:keep-running true})
+    (let [system (atom {:keep-running true
+                        :riders []})
           rider-spawner (make-rider-spawner num-floors
                                             rider-body-min-weight
                                             rider-body-max-weight
                                             true)]
-
       ;; this thread will just go and spawn riders every 3 seconds
       (.start
        (Thread.
@@ -79,6 +78,8 @@
                (Thread.
                 (fn []
                   (let [new-rider (rider-spawner)]
+                    ;; the rider is created and has all sorts of attributes (dest floor, etc)
+                    ;; now what?
                     (println new-rider))))))
 
             (Thread/sleep 3000)
